@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">#33333333</item>
+    </style>
+    <style name="MainViewStyle">
+        <item name="android:src">@drawable/dark_arab_sign_logo</item>
+    </style>
+    <style name="screenColor">
+        <item name="android:background">@color/black</item>
+    </style>
+    <style name="button">
+        <item name="backgroundTint">@color/white</item>
+    </style>
+</resources>
