@@ -2,6 +2,16 @@
     <string name="app_name">My Application</string>
     <string name="title_activity_home">HomeActivity</string>
 
+    <string name="conv_end">إنهاء المحادثة</string>
+    <string name="translation_default">تظهر الترجمة هنا</string>
+    <string name="camera_default">تظهر الكاميرا هنا</string>
+
+    <string name="input_dialog_ok">تأكيد</string>
+    <string name="input_dialog_cancel">إلغاء</string>
+
+    <string name="save_dialog_ok">حفظ</string>
+    <string name="save_dialog_cancel">تجاهل</string>
+
 
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_home">الرئيسية</string>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity2">
+    tools:context=".HomeActivity">
         <TextView
             android:id="@+id/homeText"
             android:layout_width="match_parent"
@@ -56,8 +56,10 @@
                 android:fontFamily="@font/gothic_a1"
                 android:text="@string/start"
                 android:layout_gravity="center"
-                android:layout_marginTop="150dp"
-                android:backgroundTint="#e040fb"/>
+                android:layout_marginTop="70dp"
+                android:backgroundTint="#e040fb"
+                android:onClick="popup"
+                />
         </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
