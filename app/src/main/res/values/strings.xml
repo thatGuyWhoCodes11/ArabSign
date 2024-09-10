@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">الرئيسية</string>
+    <string name="title_chat">المحادثات</string>
+    <string name="title_profile">الملف الشخصي</string>
+    <string name="start">بدء المحادثة</string>
+    <string name="Home">الرئيسية</string>
+    <string name="Greeting">مرحبا محمد, </string>
 </resources>
