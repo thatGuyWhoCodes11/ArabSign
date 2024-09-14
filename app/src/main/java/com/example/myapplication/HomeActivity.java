@@ -4,13 +4,18 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HomeActivity extends AppCompatActivity {
+import com.google.android.material.navigation.NavigationBarView;
+
+public class HomeActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
 
     AlertDialog dialog;
 
@@ -19,7 +24,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
     }
-
     public void toActivity(View view) {
         Intent intent = new Intent(this, TranslationActivity.class);
         startActivity(intent);
@@ -38,4 +42,9 @@ public class HomeActivity extends AppCompatActivity {
         dialog.dismiss();
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Log.d("DEBUGPRINT", String.valueOf(item.getItemId()));
+        return false;
+    }
 }
