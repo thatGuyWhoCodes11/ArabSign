@@ -20,4 +20,5 @@
     <string name="start">بدء المحادثة</string>
     <string name="Home">الرئيسية</string>
     <string name="Greeting">مرحبا محمد, </string>
+    <string name="title_activity_history">HistoryActivity</string>
 </resources>
