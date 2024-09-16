@@ -58,10 +58,10 @@ public class UserMainActivity extends AppCompatActivity implements NavigationBar
             replaceFragment(new HistoryFragment());
             return true;
         }
-//        if(item.getItemId() == R.id.navigation_profile){
-//            replaceFragment(new ProfileFragment());
-//            return true;
-//        }
+        if(item.getItemId() == R.id.navigation_profile){
+            replaceFragment(new ProfileFragment());
+            return true;
+        }
         return true;
     }
     private void replaceFragment(Fragment fragment){

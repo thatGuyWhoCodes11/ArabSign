@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ProfileFragment">
+
+    <TextView
+        android:id="@+id/homeText"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:fontFamily="@font/gothic_a1_thin"
+        android:textColor="@color/black"
+        android:text="@string/title_profile"
+        android:textStyle="bold"
+        android:drawable="@drawable/border"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginVertical="16dp"
+        android:background="@drawable/border"
+        >
+        <ImageView android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_profile"
+            >
+        </ImageView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="محمد"
+            android:textSize="30sp"
+            android:fontFamily="@font/gothic_a1"
+            android:textStyle="bold"
+            >
+
+        </TextView>
+    </LinearLayout>
+    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="6dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/night_mode_option"
+            android:textSize="20sp"
+            android:fontFamily="@font/gothic_a1"
+            android:textStyle="bold"
+            android:layout_gravity="end"
+            >
+
+        </TextView>
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            app:thumbTint="@color/white"
+            >
+
+        </com.google.android.material.materialswitch.MaterialSwitch>
+        
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="6dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/font_size_option"
+            android:textSize="20sp"
+            android:fontFamily="@font/gothic_a1"
+            android:textStyle="bold"
+            android:gravity="start"
+            >
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/font_size_hint"
+            android:textSize="20sp"
+            android:fontFamily="@font/gothic_a1"
+            android:textStyle="normal"
+            android:gravity="end"
+            >
+
+        </TextView>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginVertical="16dp"
+        >
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/feedback_button"
+        style="@style/button"
+        android:fontFamily="@font/gothic_a1"
+        android:padding="15dp"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/logout_button"
+        style="@style/button"
+        android:fontFamily="@font/gothic_a1"
+        android:padding="15dp"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        />
+    </LinearLayout>
+
+
+</LinearLayout>
