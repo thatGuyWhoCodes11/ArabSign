@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    >
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="اسم المستخدم"
+        android:textColorHint="@android:color/black"
+        android:gravity="end"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp"
+        android:textDirection="ltr"
+        android:background="@drawable/border"
+        />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="البريد الإلكتروني"
+        android:textColorHint="@android:color/black"
+        android:gravity="end"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp"
+        android:textDirection="ltr"
+        android:background="@drawable/border"
+
+        />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="كلمة المرور"
+        android:textColorHint="@android:color/black"
+        android:gravity="end"
+        android:background="@drawable/border"
+        android:padding="10dp"
+        android:inputType="textPassword"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="تأكيد كلمة المرور"
+        android:textColorHint="@android:color/black"
+        android:gravity="end"
+        android:background="@drawable/border"
+        android:padding="10dp"
+        android:inputType="textPassword"
+        android:layout_marginBottom="16dp" />
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/light_arab_sign_logo"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp" />
+
+
+    <Button
+        android:id="@+id/createAccountBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="إنشاء حساب"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="16dp"
+        />
+</LinearLayout>
