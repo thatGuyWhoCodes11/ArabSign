@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,13 +28,15 @@ public class CreateAccountActivity extends AppCompatActivity {
         createAccount.setOnClickListener(v -> {
             //check the password
 
-            if (password.getText().toString() == confirmPassword.getText().toString()) {
-                String usernameText = username.getText().toString();
-                String emailText = email.getText().toString();
-                String passwordText = password.getText().toString();
-                String confirmPasswordText = confirmPassword.getText().toString();
-            }
+//            if (password.getText().toString().equals(confirmPassword.getText().toString())) {
+//                String usernameText = username.getText().toString();
+//                String emailText = email.getText().toString();
+//                String passwordText = password.getText().toString();
+//                String confirmPasswordText = confirmPassword.getText().toString();
+//            }
 
+            Intent intent = new Intent(this, LoginCreatAccActivity.class);
+            startActivity(intent);
 
         });
     }

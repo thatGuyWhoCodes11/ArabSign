@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,6 +28,11 @@ public class loginActivity extends AppCompatActivity {
 //click listner for the TextView
         resetPasswordTextView.setOnClickListener(v -> {
             Intent intent = new Intent(this, ResetPasswordActivity.class);
+            startActivity(intent);
+        });
+
+        createAccount.setOnClickListener(v -> {
+            Intent intent = new Intent(this, UserMainActivity.class);
             startActivity(intent);
         });
 
