@@ -7,7 +7,9 @@
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
     android:orientation="vertical"
-    tools:context=".TranslationActivity">
+    tools:context=".TranslationActivity"
+    android:theme="@style/lightdark"
+    >
     <TextView
         android:id="@+id/homeText"
         android:layout_width="match_parent"
@@ -15,8 +17,7 @@
         android:textAlignment="center"
         android:textSize="30sp"
         android:fontFamily="@font/gothic_a1_thin"
-        android:textColor="@color/black"
-        android:text="@string/title_home"
+        android:text="@string/title_translate"
         />
 
     <TextView
@@ -44,12 +45,12 @@
 
     </TextView>
     <Button
+        style="@style/fancybutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="32dp"
         android:text="@string/conv_end"
-        android:backgroundTint="#e040fb"
         android:textSize="40sp"
         android:fontFamily="@font/gothic_a1"
         android:layout_marginBottom="20dp"

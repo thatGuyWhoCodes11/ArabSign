@@ -21,6 +21,8 @@ public class UserMainActivity extends AppCompatActivity implements NavigationBar
     AlertDialog dialog;
     NavigationBarView navigationBar_v;
     UserMainActivityBinding binding;
+    int selectedFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +30,29 @@ public class UserMainActivity extends AppCompatActivity implements NavigationBar
         setContentView(binding.getRoot());
         navigationBar_v = findViewById(R.id.nav_view);
         navigationBar_v.setOnItemSelectedListener(this);
-        replaceFragment(new HomeFragment());
+
+        if (savedInstanceState==null) {
+            selectedFragment = navigationBar_v.getMenu().size()-1;
+        }
+        else{
+            selectedFragment = savedInstanceState.getInt("selectedFragment");
+        }
+        try {
+            replaceFragment(new HomeFragment());
+            onNavigationItemSelected(navigationBar_v.getMenu()
+                    .getItem(selectedFragment));
+        }
+        catch (NullPointerException e){
+
+        }
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putInt("selectedFragment",selectedFragment);
+        super.onSaveInstanceState(outState);
+    }
+
     public void toActivity(View view) {
         Intent intent = new Intent(this, TranslationActivity.class);
         startActivity(intent);
@@ -38,7 +61,8 @@ public class UserMainActivity extends AppCompatActivity implements NavigationBar
     public void popup(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        LayoutInflater inflater = this.getLayoutInflater();
+        LayoutInflater inflater = getLayoutInflater();
+        builder.getContext().setTheme(R.style.dialogradius);
         builder.setView(inflater.inflate(R.layout.dialog_input,null));
         dialog = builder.create();
         dialog.show();
@@ -50,6 +74,7 @@ public class UserMainActivity extends AppCompatActivity implements NavigationBar
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        selectedFragment = item.getOrder();
         if(item.getItemId() == R.id.navigation_home){
             replaceFragment(new HomeFragment());
             return true;

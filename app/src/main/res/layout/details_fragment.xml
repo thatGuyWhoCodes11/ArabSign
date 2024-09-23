@@ -55,8 +55,7 @@ tools:context=".DetailsFragment">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="مرحباً"
-                android:textSize="18sp"
-                android:textColor="@android:color/black" />
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/tv_sub_text"
