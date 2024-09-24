@@ -20,3 +20,4 @@ public class ResetPasswordActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+
