@@ -3,6 +3,7 @@
     <string name="title_activity_home">HomeActivity</string>
 
     <string name="conv_end">إنهاء المحادثة</string>
+    <string name="title_translate">الترجمة</string>
     <string name="translation_default">تظهر الترجمة هنا</string>
     <string name="camera_default">تظهر الكاميرا هنا</string>
 
@@ -18,9 +19,14 @@
     <string name="title_chat">المحادثات</string>
     <string name="title_profile">الملف الشخصي</string>
     <string name="start">بدء المحادثة</string>
-    <string name="Home">الرئيسية</string>
     <string name="Greeting">مرحبا محمد, </string>
+
     <string name="title_activity_history">HistoryActivity</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="night_mode_option">تفعيل الوضع الليلي</string>
+    <string name="font_size_option">نوع الخط</string>
+    <string name="font_size_hint">استخدم الوضع الإفتراضي</string>
+    <string name="feedback_button">إرسال الرأي</string>
+    <string name="logout_button">تسجيل الخروج</string>
+
 </resources>

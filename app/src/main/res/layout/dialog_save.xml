@@ -8,7 +8,8 @@
     android:layout_margin="16dp"
     android:gravity="end"
     android:layout_gravity="center"
-    android:background="@drawable/dialog_background">
+    style="@style/dialogbackground"
+    >
 
     <TextView
         android:id="@+id/dialog_title"
@@ -42,12 +43,12 @@
             />
 
         <androidx.appcompat.widget.AppCompatButton
+            style="@style/dialogconfirmbutton"
             android:id="@+id/confirm_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/save_dialog_ok"
-            android:background="@drawable/button_background_confirm"
             android:textColor="@color/white"
             android:onClick="toActivity"
             />

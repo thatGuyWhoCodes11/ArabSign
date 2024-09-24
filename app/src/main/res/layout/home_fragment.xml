@@ -12,8 +12,7 @@
             android:textAlignment="center"
             android:textSize="30sp"
             android:fontFamily="@font/gothic_a1_thin"
-            android:textColor="@color/black"
-            android:text="@string/Home"
+            android:text="@string/title_home"
             />
 
         <LinearLayout
@@ -25,7 +24,6 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"
                 android:alpha="0.1"
                 />
             <TextView
@@ -46,6 +44,7 @@
                 android:layout_gravity="center"
                 />
             <Button
+                style="@style/fancybutton"
                 android:id="@+id/start"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"

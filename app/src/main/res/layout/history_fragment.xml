@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main"
-    android:background="@color/white"
-    tools:context=".HomeActivity">
+    style="@style/screenColor"
+    tools:context=".HistoryFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,7 +20,6 @@
             android:layout_height="wrap_content"
             android:text="السجل"
             android:textSize="24sp"
-            android:textColor="@android:color/black"
             android:layout_gravity="center"
             android:paddingBottom="16dp" />
 
@@ -29,13 +28,4 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@android:color/white"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black" />
 </RelativeLayout>

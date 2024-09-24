@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    style="@style/screenColor"
+    >
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="البريد الإلكتروني"
+        android:gravity="end"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp"
+        android:textDirection="ltr"
+        android:background="@drawable/border"
+
+        />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="كلمة المرور"
+        android:gravity="end"
+        android:background="@drawable/border"
+        android:padding="10dp"
+        android:inputType="textPassword"
+        android:layout_marginBottom="16dp" />
+
+
+    <TextView
+        android:id="@+id/reset_password_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="نسيت كلمة المرور؟"
+        android:layoutDirection="rtl"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="end"/>
+
+
+
+
+    <ImageView
+        style="@style/MainViewStyle"
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp" />
+
+
+    <Button
+        style="@style/button"
+        android:id="@+id/createAccountBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="تسجيل دخول"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp"
+        />
+</LinearLayout>
