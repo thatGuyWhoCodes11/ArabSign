@@ -22,7 +22,7 @@ public class LoginCreatAccActivity extends AppCompatActivity {
         });
 
         loginBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(this, loginActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         });
     }
