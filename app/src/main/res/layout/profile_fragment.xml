@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    tools:context=".ProfileFragment">
+    tools:context=".ProfileFragment"
+    style="@style/screenColor"
+    >
 
     <TextView
         android:id="@+id/homeText"
@@ -14,44 +15,52 @@
         android:textAlignment="center"
         android:textSize="30sp"
         android:fontFamily="@font/gothic_a1_thin"
-        android:textColor="@color/black"
         android:text="@string/title_profile"
         android:textStyle="bold"
         android:drawable="@drawable/border"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBaseline_toTopOf="parent"
+        app:layout_constraintBaseline_toBottomOf="parent"
         />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginVertical="16dp"
-        android:background="@drawable/border"
-        >
-        <ImageView android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_profile"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileimg"
+            android:layout_width="wrap_content"
+            android:layout_height="100sp"
+            android:src="@drawable/dark_arab_sign_logo"
+            app:shapeAppearanceOverlay="@style/imageradius"
+            android:scaleType="fitXY"
+            android:cropToPadding="true"
+            android:adjustViewBounds="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeText"
             >
-        </ImageView>
-
-
+        </com.google.android.material.imageview.ShapeableImageView>
         <TextView
+            android:id="@+id/usrnm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="محمد"
             android:textSize="30sp"
             android:fontFamily="@font/gothic_a1"
             android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileimg"
             >
 
         </TextView>
-    </LinearLayout>
-    
-    <FrameLayout
+
+    <RelativeLayout
+        android:id="@+id/rl1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="6dp"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/usrnm"
+        android:layout_marginTop="16dp"
         >
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,26 +68,26 @@
             android:textSize="20sp"
             android:fontFamily="@font/gothic_a1"
             android:textStyle="bold"
-            android:layout_gravity="end"
+            android:layout_alignStart="@id/modeswitch"
             >
 
         </TextView>
         <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/modeswitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             app:thumbTint="@color/white"
-            >
+           >
 
         </com.google.android.material.materialswitch.MaterialSwitch>
-        
-    </FrameLayout>
-
-    <FrameLayout
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="6dp"
+        app:layout_constraintTop_toBottomOf="@id/rl1"
+        app:layout_constraintBottom_toTopOf="@id/btn_feedback"
+        android:layout_marginBottom="16dp"
         >
         <TextView
             android:layout_width="match_parent"
@@ -87,32 +96,27 @@
             android:textSize="20sp"
             android:fontFamily="@font/gothic_a1"
             android:textStyle="bold"
-            android:gravity="start"
+            android:textAlignment="textStart"
             >
 
         </TextView>
         <TextView
+            android:id="@+id/fontset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/font_size_hint"
             android:textSize="20sp"
             android:fontFamily="@font/gothic_a1"
             android:textStyle="normal"
-            android:gravity="end"
+            android:textAlignment="textEnd"
             >
 
         </TextView>
 
-    </FrameLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginVertical="16dp"
-        >
+    </RelativeLayout>
 
     <Button
+        android:id="@+id/btn_feedback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/feedback_button"
@@ -121,8 +125,12 @@
         android:padding="15dp"
         android:layout_margin="10dp"
         android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_logout"
         />
     <Button
+        android:id="@+id/btn_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/logout_button"
@@ -131,8 +139,10 @@
         android:padding="15dp"
         android:layout_margin="10dp"
         android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_feedback"
         />
-    </LinearLayout>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,13 +1,21 @@
 package com.example.myapplication;
-//TEEEEESTtttttttttttt
 
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.google.android.material.materialswitch.MaterialSwitch;
+import com.google.android.material.navigation.NavigationBarView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +25,7 @@ import android.view.ViewGroup;
 public class ProfileFragment extends Fragment {
 
     //the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    boolean isNightMode;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -58,5 +67,51 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.profile_fragment, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        try {
+            NavigationBarView navigationBar_v =getActivity().findViewById(R.id.nav_view);
+            navigationBar_v.getMenu().findItem(R.id.navigation_profile).setChecked(true);
+            //go to feedback activity
+
+//            Button button = getActivity().findViewById(R.id.btn_feedback);
+//            button.setOnClickListener(v -> {
+//                Intent intent = new Intent(getActivity(), Activity.class);
+//                getActivity().startActivity(intent);
+//            });
+            Button button = getActivity().findViewById(R.id.btn_logout);
+            button.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), LoginCreatAccActivity.class);
+                getActivity().startActivity(intent);
+            });
+
+            MaterialSwitch ms = getActivity().findViewById(R.id.modeswitch);
+            setIsNightMode();
+            ms.setChecked(isNightMode);
+            ms.setOnClickListener((v) -> {
+                int newMode;
+                if (isNightMode){
+                    newMode=AppCompatDelegate.MODE_NIGHT_NO;
+                }
+                else {
+                    newMode=AppCompatDelegate.MODE_NIGHT_YES;
+                }
+                AppCompatDelegate.setDefaultNightMode(newMode);
+
+            });
+        }
+
+        catch (NullPointerException ignored){
+
+        }
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    public void setIsNightMode(){
+        int modeMask = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+
+        isNightMode=modeMask==Configuration.UI_MODE_NIGHT_YES;
     }
 }

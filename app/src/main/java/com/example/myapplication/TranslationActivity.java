@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +18,16 @@ public class TranslationActivity extends AppCompatActivity {
         setContentView(R.layout.translation_activity);
     }
 
+    public void toActivity(View v){
+        Intent intent = new Intent(this,UserMainActivity.class);
+        startActivity(intent);
+    }
+
     public void popup(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = this.getLayoutInflater();
+        builder.getContext().setTheme(R.style.dialogradius);
         builder.setView(inflater.inflate(R.layout.dialog_save,null));
         dialog = builder.create();
         dialog.show();

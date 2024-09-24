@@ -3,6 +3,7 @@
     <string name="title_activity_home">HomeActivity</string>
 
     <string name="conv_end">إنهاء المحادثة</string>
+    <string name="title_translate">الترجمة</string>
     <string name="translation_default">تظهر الترجمة هنا</string>
     <string name="camera_default">تظهر الكاميرا هنا</string>
 

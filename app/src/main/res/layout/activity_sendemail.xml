@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="البريد الإلكتروني"
-        android:textColorHint="@android:color/black"
         android:gravity="end"
         android:padding="10dp"
         android:layout_marginBottom="16dp"
@@ -24,21 +23,20 @@
 
 
     <Button
+        style="@style/button"
         android:id="@+id/createAccountBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text=" ارسال رمز التحقق"
-        android:textColor="@android:color/white"
         android:textSize="24sp"
-        android:backgroundTint="@color/black"
         android:layout_marginTop="16dp"
         />
 
     <ImageView
+        style="@style/MainViewStyle"
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/light_arab_sign_logo"
         android:layout_gravity="center"
         android:layout_marginBottom="16dp" />
 
