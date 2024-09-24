@@ -5,14 +5,21 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 
 public class CreateAccountActivity extends AppCompatActivity {
     private EditText username, email, password, confirmPassword;
     private Button createAccount;
-
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,19 +33,48 @@ public class CreateAccountActivity extends AppCompatActivity {
 
 
         createAccount.setOnClickListener(v -> {
-            //check the password
+            if (password.getText().toString().equals(confirmPassword.getText().toString())) {
+                String usernameText = username.getText().toString();
+                String emailText = email.getText().toString();
+                String passwordText = password.getText().toString();
+                String confirmPasswordText = confirmPassword.getText().toString();
 
-//            if (password.getText().toString().equals(confirmPassword.getText().toString())) {
-//                String usernameText = username.getText().toString();
-//                String emailText = email.getText().toString();
-//                String passwordText = password.getText().toString();
-//                String confirmPasswordText = confirmPassword.getText().toString();
-//            }
+                HashMap<String,String> newUserData = new HashMap<>();
+                newUserData.put("username", usernameText);
+                newUserData.put("email", emailText);
+                newUserData.put("password", passwordText);
 
-            Intent intent = new Intent(this, LoginCreatAccActivity.class);
-            startActivity(intent);
-
+                if (usernameText.isEmpty() || emailText.isEmpty() || passwordText.isEmpty() || confirmPasswordText.isEmpty()) {
+                    Toast.makeText(this, "Make sure all fields are filled", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(!passwordText.equals(confirmPasswordText)){
+                    Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                mAuth = FirebaseAuth.getInstance();
+                mAuth.createUserWithEmailAndPassword(emailText, passwordText).addOnCompleteListener(Task ->{
+                    if (Task.isSuccessful()) {
+                        Intent intent = new Intent(this, LoginActivity.class);
+                        handleDatabase(newUserData);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
         });
     }
-
+    private void handleDatabase(HashMap<String,String> newUserData) {
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("users/"+ FirebaseAuth.getInstance().getCurrentUser().getUid());
+        db.setValue(newUserData).addOnCompleteListener(Task->{
+            if(Task.isSuccessful()){
+                Toast.makeText(this, "Account created successfully", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

@@ -2,17 +2,22 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class loginActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+
+public class LoginActivity extends AppCompatActivity {
 
     private EditText  email, password;
     private Button createAccount;
     private TextView resetPasswordTextView;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +38,18 @@ public class loginActivity extends AppCompatActivity {
 
         createAccount.setOnClickListener(v -> {
             Intent intent = new Intent(this, UserMainActivity.class);
-            startActivity(intent);
+            String ST_email = email.getText().toString();
+            String ST_password = password.getText().toString();
+            mAuth = FirebaseAuth.getInstance();
+            Log.d("TAG", ST_email+" "+ST_password);
+            mAuth.signInWithEmailAndPassword(ST_email.toString(), ST_password.toString()).addOnCompleteListener(Task ->{
+                if (Task.isSuccessful()) {
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                }
+            });
         });
 
     }
