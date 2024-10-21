@@ -20,7 +20,7 @@
         android:fontFamily="@font/gothic_a1_thin"
         android:textColor="@color/black"
         android:text="إرسال الرأي"
-        android:layout_marginBottom="40"
+        android:layout_marginBottom="40dp"
         />
     <EditText
         android:layout_width="match_parent"
