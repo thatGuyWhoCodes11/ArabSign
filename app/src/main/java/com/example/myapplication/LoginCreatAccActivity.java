@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class LoginCreatAccActivity extends AppCompatActivity {
 
     @Override
@@ -25,6 +28,16 @@ public class LoginCreatAccActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser fbusr = FirebaseAuth.getInstance().getCurrentUser();
+        if (fbusr!=null){
+            Intent intent = new Intent(this, UserMainActivity.class);
+            startActivity(intent);
+        }
     }
 }
 

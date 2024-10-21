@@ -49,6 +49,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidguava)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -66,6 +67,7 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.firestore)
     implementation(libs.cameraxcore)
     implementation(libs.cameraxcamera2)
     implementation(libs.cameraxview)
@@ -77,4 +79,9 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+}
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }

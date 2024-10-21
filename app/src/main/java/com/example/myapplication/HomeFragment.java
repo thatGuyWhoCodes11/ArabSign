@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -69,17 +70,29 @@ public class HomeFragment extends Fragment {
         return inflater.inflate(R.layout.home_fragment, container, false);
     }
 
-    public void popup(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
-
-        LayoutInflater inflater = this.getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.dialog_input,null));
-        dialog = builder.create();
-        dialog.show();
+    public void toActivityHm() {
+        dialog.dismiss();
+        Intent intent = new Intent(getActivity(), TranslationActivity.class);
+        startActivity(intent);
     }
 
-    public void returnFromPopup(View view) {
+    public void returnFromPopupHm() {
         dialog.dismiss();
+    }
+
+    public void popupHm() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.getContext().setTheme(R.style.dialogradius);
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        View eventView = inflater.inflate(R.layout.dialog_input,null);
+
+        eventView.findViewById(R.id.confirm_button).setOnClickListener(v -> toActivityHm());
+        eventView.findViewById(R.id.cancel_confirm_button).setOnClickListener(v -> returnFromPopupHm());
+
+        builder.setView(eventView);
+        dialog = builder.create();
+        dialog.show();
     }
 
     @Override
@@ -87,5 +100,10 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         NavigationBarView navigationBar_v =getActivity().findViewById(R.id.nav_view);
         navigationBar_v.getMenu().findItem(R.id.navigation_home).setChecked(true);
+        Button btn = getView().findViewById(R.id.start);
+        btn.setOnClickListener(v-> popupHm());
+        String arabicGreeting = "\u202B"+"مرحبا, "+"\u202C";
+        SharedUtils.setUserGreeting(getView().findViewById(R.id.greetingText),arabicGreeting);
     }
+
 }

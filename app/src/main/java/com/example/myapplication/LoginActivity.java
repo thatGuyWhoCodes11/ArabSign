@@ -40,9 +40,15 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(this, UserMainActivity.class);
             String ST_email = email.getText().toString();
             String ST_password = password.getText().toString();
+
+            if (ST_email.isEmpty() || ST_password.isEmpty()){
+                Toast.makeText(this, "Make sure all fields are filled", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             mAuth = FirebaseAuth.getInstance();
             Log.d("TAG", ST_email+" "+ST_password);
-            mAuth.signInWithEmailAndPassword(ST_email.toString(), ST_password.toString()).addOnCompleteListener(Task ->{
+            mAuth.signInWithEmailAndPassword(ST_email, ST_password).addOnCompleteListener(Task ->{
                 if (Task.isSuccessful()) {
                     startActivity(intent);
                 }

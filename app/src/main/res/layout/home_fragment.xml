@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="rtl"
     style="@style/screenColor"
     tools:context=".HomeFragment">
         <TextView
@@ -31,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:textSize="30sp"
-                android:layout_marginEnd="35dp"
+                android:layout_marginStart="35dp"
                 android:fontFamily="@font/gothic_a1"
                 android:paddingTop="15dp"
                 android:text="@string/Greeting" />
@@ -54,7 +55,6 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="70dp"
                 android:backgroundTint="#e040fb"
-                android:onClick="popup"
                 />
         </LinearLayout>
 </RelativeLayout>

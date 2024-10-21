@@ -45,6 +45,7 @@
     </androidx.camera.view.PreviewView>
 
     <TextView
+        android:id="@+id/translateView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -58,6 +59,7 @@
 
     </TextView>
     <Button
+        android:id="@+id/conv_end"
         style="@style/fancybutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,7 +69,6 @@
         android:textSize="40sp"
         android:fontFamily="@font/gothic_a1"
         android:layout_marginBottom="20dp"
-        android:onClick="popup"
         >
 
     </Button>

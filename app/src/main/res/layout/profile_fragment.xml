@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="rtl"
     tools:context=".ProfileFragment"
     style="@style/screenColor"
     >
@@ -41,7 +42,7 @@
             android:id="@+id/usrnm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="محمد"
+            android:text=""
             android:textSize="30sp"
             android:fontFamily="@font/gothic_a1"
             android:textStyle="bold"
@@ -56,7 +57,6 @@
         android:id="@+id/rl1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/usrnm"
         android:layout_marginTop="16dp"
         >
@@ -68,7 +68,7 @@
             android:textSize="20sp"
             android:fontFamily="@font/gothic_a1"
             android:textStyle="bold"
-            android:layout_alignStart="@id/modeswitch"
+            android:layout_alignParentStart="true"
             >
 
         </TextView>
@@ -76,18 +76,17 @@
             android:id="@+id/modeswitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:layout_alignParentEnd="true"
             app:thumbTint="@color/white"
            >
 
         </com.google.android.material.materialswitch.MaterialSwitch>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/rl1"
-        app:layout_constraintBottom_toTopOf="@id/btn_feedback"
-        android:layout_marginBottom="16dp"
         >
         <TextView
             android:layout_width="match_parent"
@@ -95,8 +94,8 @@
             android:text="@string/font_size_option"
             android:textSize="20sp"
             android:fontFamily="@font/gothic_a1"
+            android:layout_alignParentStart="true"
             android:textStyle="bold"
-            android:textAlignment="textStart"
             >
 
         </TextView>
@@ -115,34 +114,50 @@
 
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/btn_feedback"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/feedback_button"
-        style="@style/button"
-        android:fontFamily="@font/gothic_a1"
-        android:padding="15dp"
-        android:layout_margin="10dp"
-        android:textSize="20sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_logout"
-        />
-    <Button
-        android:id="@+id/btn_logout"
+        app:layout_constraintBottom_toTopOf="@id/space"
+        app:layout_constraintTop_toBottomOf="@id/usrnm"
+        >
+
+        <Button
+            android:id="@+id/btn_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/feedback_button"
+            style="@style/button"
+            android:fontFamily="@font/gothic_a1"
+            android:padding="15dp"
+            android:layout_margin="10dp"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_logout"
+            />
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/logout_button"
+            style="@style/button"
+            android:fontFamily="@font/gothic_a1"
+            android:padding="15dp"
+            android:layout_margin="10dp"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_feedback"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Space
+        android:id="@+id/space"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/logout_button"
-        style="@style/button"
-        android:fontFamily="@font/gothic_a1"
-        android:padding="15dp"
-        android:layout_margin="10dp"
-        android:textSize="20sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_feedback"
+        app:layout_constraintTop_toBottomOf="parent"
         />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
