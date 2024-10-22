@@ -6,8 +6,7 @@
     android:padding="16dp"
     android:gravity="center"
     android:layout_gravity="center"
-    android:background="@drawable/dialog_background"
-    >
+    android:background="@drawable/dialog_background">
 
     <TextView
         android:id="@+id/dialog_title"
@@ -57,8 +56,7 @@
             android:text="ASL"
             android:background="@drawable/button_background1"
             android:textColor="@color/black"
-            android:layout_marginRight="10dp"
-            android:onClick="returnFromPopup"
+            android:layout_marginEnd="10dp"
             />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -69,8 +67,7 @@
             android:text="ARSL"
             android:background="@drawable/button_background1"
             android:textColor="@color/black"
-            android:layout_marginRight="10dp"
-            android:onClick="returnFromPopup"
+            android:layout_marginEnd="10dp"
             />
 
     </LinearLayout>
@@ -83,26 +80,24 @@
         android:layout_marginTop="20dp">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/cancel_button"
+            android:id="@+id/cancel_confirm_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/input_dialog_cancel"
             android:background="@drawable/button_background1"
             android:textColor="@color/black"
-            android:layout_marginRight="10dp"
-            android:onClick="returnFromPopup"
+            android:layout_marginEnd="10dp"
             />
 
         <androidx.appcompat.widget.AppCompatButton
-            style="@style/dialogconfirmbutton"
             android:id="@+id/confirm_button"
+            style="@style/dialogconfirmbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/input_dialog_ok"
             android:textColor="@color/white"
-            android:onClick="toActivity"
             />
     </LinearLayout>
 

@@ -33,11 +33,11 @@
         >
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/denied_return_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="الرجوع"
             android:background="@drawable/button_background1"
-            android:onClick="outOfActivity"
             android:layout_marginRight="16dp"
             >
 

@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
@@ -16,6 +17,8 @@ import android.widget.Button;
 
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +29,7 @@ public class ProfileFragment extends Fragment {
 
     //the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     boolean isNightMode;
+    SharedPreferences sharedPref;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -74,6 +78,7 @@ public class ProfileFragment extends Fragment {
         try {
             NavigationBarView navigationBar_v =getActivity().findViewById(R.id.nav_view);
             navigationBar_v.getMenu().findItem(R.id.navigation_profile).setChecked(true);
+            sharedPref = getActivity().getSharedPreferences("appPref",0);
             //go to feedback activity
 
 //            Button button = getActivity().findViewById(R.id.btn_feedback);
@@ -81,26 +86,32 @@ public class ProfileFragment extends Fragment {
 //                Intent intent = new Intent(getActivity(), Activity.class);
 //                getActivity().startActivity(intent);
 //            });
-            Button button = getActivity().findViewById(R.id.btn_logout);
+            Button button = getView().findViewById(R.id.btn_logout);
             button.setOnClickListener(v -> {
+                sharedPref.edit().putInt("selectedFragment",2).apply();
+
                 Intent intent = new Intent(getActivity(), LoginCreatAccActivity.class);
+                FirebaseAuth.getInstance().signOut();
                 getActivity().startActivity(intent);
             });
 
-            MaterialSwitch ms = getActivity().findViewById(R.id.modeswitch);
+            MaterialSwitch ms = getView().findViewById(R.id.modeswitch);
             setIsNightMode();
             ms.setChecked(isNightMode);
             ms.setOnClickListener((v) -> {
                 int newMode;
-                if (isNightMode){
-                    newMode=AppCompatDelegate.MODE_NIGHT_NO;
-                }
-                else {
+                if (ms.isChecked()){
                     newMode=AppCompatDelegate.MODE_NIGHT_YES;
                 }
+                else {
+                    newMode=AppCompatDelegate.MODE_NIGHT_NO;
+                }
+                sharedPref.edit().putBoolean("selectedDark",ms.isChecked()).apply();
+//                sharedPref.edit().putBoolean("isRecreated",true).apply();
                 AppCompatDelegate.setDefaultNightMode(newMode);
 
             });
+            SharedUtils.setUserGreeting(getView().findViewById(R.id.usrnm));
         }
 
         catch (NullPointerException ignored){

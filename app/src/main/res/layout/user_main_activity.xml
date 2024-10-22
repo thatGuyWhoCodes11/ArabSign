@@ -5,7 +5,7 @@
     android:gravity="bottom"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <FrameLayout
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/main_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
